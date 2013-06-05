@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();                   // 3
 var dirname = process.cwd();
 var path = require('path');            // 12
+var port = 3000;
 
 
 /*
@@ -22,8 +23,8 @@ app.get('/hello.txt', function(req, res){      // 6
 });
 
 
-app.use(express.static(dirname));
-app.use(express.static(path.join(__dirname + "/public"))); // 10
+//app.use(express.static(dirname));
+//app.use(express.static(path.join(__dirname + "/public"))); // 10
 
 
 //===== error handling middleware ============
@@ -42,8 +43,8 @@ app.listen(3000);                               // 8
 
 
 app.listen(port, function() { 
-  console.log("Serving on port " + port + " files in " + dirname); // 8
-  console.log("The currently executing script resides in directory '" +__dirname + '"'); //11
+  console.log("   Serving on port {{" + port + "}} files in {{" + __dirname + "}}."); 
+  console.log("   The currently executing script resides in directory {{"  + __dirname + "}}"); // 11
 });
 
 
@@ -64,6 +65,6 @@ app.listen(port, function() {
        Users/igoryen/igoryen_personal/Learn/abiu/public.
        If you don't specify a specific dir. then express will use dir called 'public'.
        what will be served is only the HTML file in public
- 
+   11) __dirname has the name of the dir where the currently executing script [s.js] resides in
    12) module required for handling and transforming file paths.
  */
