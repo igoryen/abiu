@@ -1,5 +1,5 @@
 var express = require('express');
-var app = express.createServer(express.logger);    // 3
+var app = express();   // 3
 var dirname = process.cwd();
 var path = require('path');            // 12
 var port = 3000;
