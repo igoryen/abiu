@@ -21,6 +21,11 @@ app.get('/hello.txt', function(req, res){      // 6
   res.end(body);
 });
 
+
+app.use(express.static(dirname));
+app.use(express.static(path.join(__dirname + "/public"))); // 10
+
+
 //===== error handling middleware ============
 
 app.use(function(err, req, res, next){         // 9
@@ -30,10 +35,10 @@ app.use(function(err, req, res, next){         // 9
 //=============================================
 
 
-
+/*
 console.log('Started on port 3000...')          // 2
 app.listen(3000);                               // 8 
-
+*/
 
 //============================================
 /* 
@@ -47,6 +52,10 @@ app.listen(3000);                               // 8
    7) invoke a function on the res object
    8) invoking express.listen() to bind and listen to connections
    9) error-handling middleware must be defined with an arity of 4 (like this)
+   10) This results in:
+       Users/igoryen/igoryen_personal/Learn/abiu/public.
+       If you don't specify a specific dir. then express will use dir called 'public'.
+       what will be served is only the HTML file in public
  
    12) module required for handling and transforming file paths.
  */
