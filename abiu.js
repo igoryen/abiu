@@ -40,6 +40,14 @@ console.log('Started on port 3000...')          // 2
 app.listen(3000);                               // 8 
 */
 
+
+app.listen(port, function() { 
+  console.log("Serving on port " + port + " files in " + dirname); // 8
+  console.log("The currently executing script resides in directory '" +__dirname + '"'); //11
+});
+
+
+
 //============================================
 /* 
    1) executes 2nd, when user hits the site    
