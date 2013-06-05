@@ -28,11 +28,12 @@ app.use(express.static(path.join(__dirname + "/public"))); // 10
 
 
 //===== error handling middleware ============
-
+/*
 app.use(function(err, req, res, next){         // 9
   console.error(err.stack);
   res.send(500, 'Something broke!');
 });
+*/
 //=============================================
 
 
