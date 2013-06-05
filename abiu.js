@@ -23,8 +23,8 @@ app.get('/hello.txt', function(req, res){      // 6
 });
 
 
-//app.use(express.static(dirname));
-//app.use(express.static(path.join(__dirname + "/public"))); // 10
+app.use(express.static(dirname));
+app.use(express.static(path.join(__dirname + "/public"))); // 10
 
 
 //===== error handling middleware ============
@@ -43,13 +43,13 @@ app.listen(3000);                               // 8
 
 
 app.listen(port, function() { 
-  console.log("   Serving on port {{" + port + "}} files in {{" + __dirname + "}}."); 
-  console.log("   The currently executing script resides in directory {{"  + __dirname + "}}"); // 11
+  console.log("   Serving on this port: (" + port + "). Files from here: " + __dirname + "."); 
+  console.log("   The script is executing from here: "  + __dirname + "."); // 11
 });
 
 
 
-//============================================
+//======================================================================================================================
 /* 
    1) executes 2nd, when user hits the site    
       here the res object is augmented by 'express'. send() is one of the higher level methods. send() adds the Content-Length for you.
