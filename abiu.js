@@ -19,6 +19,16 @@ app.get('/hello.txt', function(req, res){      // 6
   res.end(body);
 });
 
+//===== error handling middleware ============
+
+app.use(function(err, req, res, next){         // 9
+  console.error(err.stack);
+  res.send(500, 'Something broke!');
+});
+//=============================================
+
+
+
 console.log('Started on port 3000...')          // 2
 app.listen(3000);                               // 8 
 
@@ -33,3 +43,4 @@ app.listen(3000);                               // 8
 // 6) "req" and "res" - the exact same objects that Node provides to you 
 // 7) invoke a function on the res object
 // 8) invoking express.listen() to bind and listen to connections
+// 9) error-handling middleware must be defined with an arity of 4 (like this)
